@@ -1,4 +1,4 @@
-﻿# Telegraf Configuration
+# Telegraf Configuration
 #
 # THIS FILE IS MANAGED BY PUPPET
 #
@@ -22,7 +22,7 @@
   debug = <%= @debug %>
   quiet = <%= @quiet %>
   logfile = '/var/log/telegraf/telegraf.log'
-
+  
 <% if @_outputs -%>
 #
 # OUTPUTS:
