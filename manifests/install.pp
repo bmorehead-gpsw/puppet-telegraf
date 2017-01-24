@@ -41,10 +41,10 @@ class telegraf::install {
   }
 
   ensure_packages(['telegraf'], { ensure => $::telegraf::ensure })
-  # Ensure it only removes the config one time
-  file { '/etc/telegraf/telegraf.conf':
-    ensure  => 'absent',
-    creates => '/var/run/telegraf.lock',
+  # Remove the config file if it exists 
+  file {"/etc/telegraf/telegraf.conf':
+    ensure   => 'absent',
+    require  => Package['telegraf'],
   }
 
 }
