@@ -41,10 +41,4 @@ class telegraf::install {
   }
 
   ensure_packages(['telegraf'], { ensure => $::telegraf::ensure })
-  # Remove the config file if it exists 
-  file {'/etc/telegraf/telegraf.conf':
-    ensure   => 'absent',
-    require  => Package['telegraf'],
-  }
-
 }
