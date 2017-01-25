@@ -9,7 +9,7 @@ class telegraf::config inherits telegraf {
   exec { 'remove default configfile':
     command => 'rm -f /etc/telegraf/telegraf.conf',
     path    => '/usr/bin:/usr/sbin:/bin',
-    onlyif  => "echo 'fcc58c3cf9efa1a34f0db4bf5eba6ea7  /etc/telegraf/telegraf.conf' | md5sum -c --status",
+    onlyif  => "file -i /etc/telegraf/telegraf.conf | grep -i utf-8", 
   } ->
   file { $::telegraf::config_file:
     ensure  => file,
